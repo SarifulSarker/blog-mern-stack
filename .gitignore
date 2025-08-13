@@ -1,27 +1,42 @@
-# Node modules
-node_modules/
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-client/node_modules/
+# ======================
+# Node.js / Server
+# ======================
 server/node_modules/
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+server/.env
+server/dist/
+server/build/
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
 
-# Build output
-dist/
-build/
+# ======================
+# React / Client
+# ======================
+client/node_modules/
+client/.env
+client/dist/
+client/build/
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
 
-# OS specific files
+# ======================
+# General / System
+# ======================
 .DS_Store
 Thumbs.db
+*.log
 
-# IDE settings
+# ======================
+# IDE / Editor
+# ======================
 .vscode/
 .idea/
+*.sublime-workspace
+*.sublime-project
+
+# ======================
+# Optional
+# ======================
+*.zip
+*.tar.gz
