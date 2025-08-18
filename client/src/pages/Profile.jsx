@@ -1,6 +1,6 @@
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Card } from '@/components/ui/card'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import userLogo from "../assets/user.jpg"
 import { FaFacebook, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
@@ -21,13 +21,21 @@ import axios from 'axios'
 import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { setUser } from '@/redux/authSlice'
+import TotalProperty from '@/components/TotalProperty'
 // import TotalProperty from '@/components/TotalProperty'
 
 const Profile = () => {
+     
     const dispatch = useDispatch()
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
     const { user } = useSelector(store => store.auth)
+      const navigate = useNavigate();
+    useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
     const [input, setInput] = useState({
         firstName: user?.firstName,
         lastName: user?.lastName,
@@ -88,6 +96,7 @@ const Profile = () => {
         }
 
     }
+   
 
     return (
         <div className='pt-20 md:ml-[320px] md:h-screen'>
@@ -240,7 +249,7 @@ const Profile = () => {
                     </div>
                 </Card>
             </div>
-            {/* <TotalProperty/> */}
+             <TotalProperty/> 
         </div>
     )
 }
